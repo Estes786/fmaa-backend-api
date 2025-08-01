@@ -13,16 +13,13 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/api/$1"
+      "dest": "/api/index"
     }
   ],
   "functions": {
     "api/**/*.js": {
       "maxDuration": 30
     }
-  },
-  "env": {
-    "NODE_ENV": "production"
   }
 }
 

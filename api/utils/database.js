@@ -1,12 +1,6 @@
 const { createClient } = require('@supabase/supabase-js');
 
 // Initialize Supabase client with service role key for admin operations
-const supabaseAdmin = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_ROLE_KEY
-);
-
-// Initialize Supabase client with service role key for admin operations
 const supabaseClient = createClient(
   process.env.SUPABASE_URL,
   process.env.SUPABASE_SERVICE_ROLE_KEY
@@ -17,8 +11,8 @@ const supabaseClient = createClient(
  */
 class DatabaseUtils {
   constructor() {
-    this.admin = supabaseAdmin;
     this.client = supabaseClient;
+    this.admin = supabaseClient; // Using same client for both admin and regular operations
   }
 
   /**
@@ -557,7 +551,6 @@ const dbUtils = new DatabaseUtils();
 module.exports = {
   DatabaseUtils,
   dbUtils,
-  supabaseAdmin,
   supabaseClient
 };
 
