@@ -8,6 +8,13 @@ Deployment gagal dengan konfigurasi lengkap, jadi kita test dengan minimal setup
 2. **Minimal Package**: Hanya Node.js 18.x, tanpa dependencies
 3. **Simple Endpoints**: `/api/hello` dan `/api/simple` 
 4. **Basic Vercel Config**: Konfigurasi paling sederhana
+5. **🔧 HOTFIX**: Fixed runtime error `nodejs18.x` → removed explicit runtime
+
+## 🐛 **Error Yang Sudah Diperbaiki:**
+```
+Error: Function Runtimes must have a valid version, for example `now-php@1.0.0`.
+```
+**Solution**: Menggunakan vercel.json minimal tanpa explicit runtime specification.
 
 ## 🧪 **Test Endpoints:**
 
@@ -27,9 +34,10 @@ Expected: `{"message": "API Works!"}`
 
 ## 📋 **Deployment Checklist:**
 
-- [ ] **Commit 051f7b9** deployed to Vercel
+- [x] **Runtime Error** fixed (nodejs18.x removed)
+- [ ] **Commit 59bf507** deployed to Vercel  
 - [ ] **Basic endpoints** accessible without errors
-- [ ] **No dependency conflicts** in build logs
+- [ ] **No build/runtime conflicts** in build logs
 - [ ] **Function deployment** successful
 
 ## 🔄 **Next Steps After Success:**
@@ -58,8 +66,9 @@ File backup yang tersedia:
 - `package-simple.json` - Package.json minimal alternatif
 
 ## ⏰ **Timeline:**
-- **Step 1**: Test minimal deployment (sekarang)
-- **Step 2**: Jika berhasil → restore full package
-- **Step 3**: Jika gagal → investigate build process
+- **Step 1**: ✅ Fix runtime error
+- **Step 2**: Test minimal deployment (sekarang)
+- **Step 3**: Jika berhasil → restore full package
+- **Step 4**: Jika gagal → investigate build process
 
-**Current Commit**: `051f7b9` - Minimal deployment configuration
+**Current Commit**: `59bf507` - Fixed runtime configuration error
