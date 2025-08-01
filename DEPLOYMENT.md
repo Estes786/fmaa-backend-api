@@ -46,7 +46,22 @@ vercel --prod
 1. Trigger a new deployment by pushing a commit or manually redeploying in Vercel
 2. Your API endpoints should now work properly
 
+## Testing Your Deployment
+After deployment, test these endpoints:
+- `https://your-app.vercel.app/api/health` - Health check
+- `https://your-app.vercel.app/api/index` - API info
+- `https://your-app.vercel.app/` - Root endpoint
+
+## Recent Fixes Applied
+✅ Fixed environment variable inconsistency (was using SUPABASE_ANON_KEY, now uses SUPABASE_SERVICE_ROLE_KEY)
+✅ Added root API endpoint for better routing
+✅ Added health check endpoint for deployment testing
+✅ Improved Vercel configuration
+✅ Added deployment optimization files
+
 ## Troubleshooting
 - Make sure you're using the service_role key, not the anon/public key
 - Double-check that the Supabase URL is correct
 - Ensure your Supabase database has the required tables (agents, etc.)
+- If still failing, check the health endpoint: `/api/health`
+- Check Vercel deployment logs in dashboard for specific errors
